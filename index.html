@@ -76,6 +76,17 @@ td.num,th.num{text-align:right;font-family:var(--mono)}
 .toggle{display:inline-flex;gap:4px;background:rgba(95,100,189,.12);border:1px solid #3B3E6E;border-radius:999px;padding:3px;margin-top:12px}
 .toggle button{background:none;border:0;color:var(--ink2);font:500 13px Figtree;padding:5px 14px;border-radius:999px;cursor:pointer}
 .toggle button[aria-pressed="true"]{background:#5F64BD;color:#fff}
+.shift{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px 10px;margin:28px 0 8px;position:relative;overflow:hidden}
+.shift::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--grad)}
+.shift h4{margin:0 0 4px;font-size:17px;color:var(--ink)}
+.shift .sub{margin:0 0 14px;color:var(--muted);font-size:14px}
+.shift .row{display:grid;grid-template-columns:150px 1fr 1fr 1.15fr;gap:14px;padding:12px 0;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.shift .row.head{border-top:0;padding:0 0 6px;font:600 11px Figtree;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.shift .k{font-weight:700;color:var(--ink)}
+.shift .row div{color:var(--ink2)}
+.shift .so{color:var(--ink)!important}
+.shift .foot{font-size:12.5px;color:var(--muted);margin:8px 0 6px}
+@media (max-width:760px){.shift .row{grid-template-columns:1fr;gap:4px}.shift .row.head{display:none}.shift .row div:not(.k)::before{display:block;font:600 10.5px Figtree;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}.shift .row div:nth-child(2)::before{content:"Then (2015–16)"}.shift .row div:nth-child(3)::before{content:"Now (2025–26)"}.shift .row div:nth-child(4)::before{content:"So, for the lessons"}}
 .note{font-size:14px;color:var(--muted);border-left:2px solid var(--grey);padding:2px 0 2px 14px;margin:18px 0}
 .note b{color:var(--ink2)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -347,6 +358,16 @@ footer .strip{margin:0 0 16px}
       <h2 id="learn-h">What can other politicians learn?</h2>
       <h3 class="claim">Eight lessons that hold for social media in 2026</h3>
       <p>These are communication tactics measured in Trump's data, set against how platforms and audiences work today. They describe what draws engagement, not whether any message is right. Each comes with the evidence and the main caution.</p>
+    </div>
+    <div class="shift" role="group" aria-labelledby="shift-h">
+      <h4 id="shift-h">What changed between 2016 and 2026, and what it means for the advice</h4>
+      <p class="sub">The lessons below are not carried over from 2016. Each was tested on his Truth Social posts from 2022 to 2026 and set against how Americans use social media now.</p>
+      <div class="row head"><div></div><div>Then (2015–16)</div><div>Now (2025–26)</div><div>So, for the lessons</div></div>
+      <div class="row"><div class="k">Where people are</div><div>His main channel was Twitter, a general platform.</div><div>His main channel is his own. Only 2% of US adults get news on Truth Social, against 34% on YouTube, 20% on TikTok and 10% on X.</div><div class="so">An owned channel holds loyal supporters. Persuasion and new voters need the general platforms (lesson 7).</div></div>
+      <div class="row"><div class="k">What a post looks like</div><div>A typical post ran 19 words, and every post had text.</div><div>A typical post runs 31 words, and a quarter of posts are images or videos with no caption.</div><div class="so">Long text works for an audience already invested (lesson 8). For new audiences, the 2026 equivalent is short direct-to-camera video. <span class="tag">Not measured here</span></div></div>
+      <div class="row"><div class="k">Who the audience is</div><div>White voters without a degree were 63% of his voters.</div><div>They are 51%. Voters under 50 are 40%, Hispanic voters 10%, and men under 50 split almost evenly.</div><div class="so">One feed cannot reach every group. Match the tactic to where each group gets news (table below).</div></div>
+      <div class="row"><div class="k">What still works</div><div>Nicknames for opponents lifted engagement by 38%. Posts with a link did 8% worse.</div><div>Nicknames lift it by 50%. Posts with a link do 45% worse.</div><div class="so">The voice-led tactics have grown stronger, and links have become far more costly (lessons 1 and 2). This is the most durable part of the playbook.</div></div>
+      <p class="foot">Then and now: Trump's posts, Twitter 16 June 2015–19 January 2017 and Truth Social 20 January 2025–23 April 2026. Platform use: Pew Research Center, October 2026. Coalition: Pew validated voters, 2016 and 2024. Nickname and link effects compare posts with and without the feature in each period (medians, not adjusted for other factors).</p>
     </div>
     <div class="plays" id="plays"></div>
 
