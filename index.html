@@ -135,7 +135,7 @@ footer .strip{margin:0 0 16px}
   <div class="wrap">
     <div class="topbar">
       <span>Prepared for the Atlantic Data Institute · November 2026</span>
-      <nav aria-label="Sections"><a href="#works">What works</a><a href="#lands">Base</a><a href="#then-now">2016 vs 2026</a><a href="#compare">Compare</a><a href="#learn">Lessons</a><a href="#explore">Explore</a><a href="#method">Method</a></nav>
+      <nav aria-label="Sections"><a href="#works">What works</a><a href="#lands">Base</a><a href="#then-now">2016 vs 2026</a><a href="#compare">Compare</a><a href="#learn">Lessons</a><a href="#explore">Explore</a><a href="#sources">Sources</a></nav>
     </div>
     <div class="strip"></div>
     <div class="kicker">US politicians on social media · Report</div>
@@ -250,7 +250,7 @@ footer .strip{margin:0 0 16px}
       <figcaption><p class="t">Foreign policy fills 38% of his best-performing posts</p><p class="s">Share of all original posts vs share of his top 10% by engagement multiple, by topic, Truth Social since 20 January 2025</p></figcaption>
       <div class="toggle" role="group" aria-label="Period"><button aria-pressed="true" data-era="Truth Social 2025–26" data-for="c-topic">Second term</button><button aria-pressed="false" data-era="Truth Social 2022–24" data-for="c-topic">Truth Social 2022–24</button><button aria-pressed="false" data-era="Twitter 2017–21" data-for="c-topic">First term</button><button aria-pressed="false" data-era="Twitter 2015–16" data-for="c-topic">2015–16 campaign</button></div>
       <div class="chart" id="c-topic" role="img" aria-label="Paired bar chart of topic share of all posts against share of top-performing posts."></div>
-      <div class="figfoot"><span>Topics tagged by keyword rules (agreement with independent labels 54%, see method). Only topics with 30+ posts shown.</span><button data-table="c-topic">View data</button></div>
+      <div class="figfoot"><span>Topics tagged by keyword rules, which matched blind labels about half the time on a held-out sample. Only topics with 30+ posts shown.</span><button data-table="c-topic">View data</button></div>
       <div class="datatable" id="c-topic-table"></div>
     </figure>
 
@@ -390,18 +390,9 @@ footer .strip{margin:0 0 16px}
   </div>
 </section>
 
-<section id="method" aria-labelledby="m-h">
+<section id="sources" aria-labelledby="src-h">
   <div class="wrap narrow">
-    <h2 id="m-h">How we did this</h2>
-    <h3 class="claim">Method in brief</h3>
-    <p><b>Data.</b> The two files provided by ADI: 56,571 tweets (May 2009–January 2021) and 32,754 Truth Social posts (February 2022–April 2026). Reposts are excluded from engagement analysis because their counts belong to the original author, or were recorded as zero. Tweets before Trump's campaign launch on 16 June 2015 are used only for the volume timeline: their engagement was recorded years later and is inflated by old tweets that were rediscovered and reshared. 49,990 posts are scored.</p>
-    <p><b>Measure.</b> Engagement is likes plus reposts. Each post is compared with the median engagement of his own original posts in the 14 days either side, the same baseline the Knox Index uses for views.</p>
-    <p><b>Tool.</b> We built <i>post-scorer</i>, a small open Python tool that loads both files into one format, tags each post's topic, format, style and timing, scores it against the baseline, fits the regression and writes the plain-English flags and charts' data. It is a prototype for tracking any US politician's account the same way.</p>
-    <p><b>Checks.</b> Topic tags come from transparent keyword rules. On 150 posts they were not built from, they matched Claude's blind labels 54% of the time (Cohen's kappa 0.49). I then hand-labelled 89 of them blind, mostly the hard cases: weighted back to the full 150, the rules match my labels about 51% of the time (an estimate). That is moderate, so topic findings are reported only where a second labelling method agrees. Format, style and timing are measured exactly. Every outside figure was checked on its source page.</p>
-    <p><b>AI.</b> Claude (Anthropic), used through Claude Code, helped write the code, acted as a second annotator on 300 posts and drafted copy. Every number was produced by code, not typed by AI, and was checked by hand.</p>
-    <p><b>Limits.</b> Engagement measures his followers' reactions, not voters' views. There are no view counts in either file. The data are observational: the regression shows association, not cause.</p>
-    <p><a href="https://github.com/bajajmrittika07/post-scorer">post-scorer on GitHub</a></p>
-    <h2 style="margin-top:40px">Sources</h2>
+    <h2 id="src-h">Sources</h2>
     <ul class="sources">
       <li>Trump Twitter archive (trump_tweets.csv) and Truth Social export (trump_posts_full.csv), provided by ADI.</li>
       <li>Pew Research Center, <a href="https://www.pewresearch.org/politics/2025/06/26/behind-trumps-2024-victory-a-more-racially-and-ethnically-diverse-voter-coalition/">"Behind Trump's 2024 Victory, a More Racially and Ethnically Diverse Voter Coalition"</a>, 26 June 2025. Accessed 25 November 2026.</li>
