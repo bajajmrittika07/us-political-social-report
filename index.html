@@ -111,6 +111,8 @@ td.num,th.num{text-align:right;font-family:var(--mono)}
 .play .care{font-size:13.5px;color:var(--muted);margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
 .coal td{vertical-align:top;font-size:14px;color:var(--ink2)}
 .coal td:first-child{color:var(--ink);font-weight:600;min-width:150px}
+.scrollhint{display:none;font-size:12.5px;color:var(--muted);margin:0 0 6px;text-align:right}
+@media (max-width:760px){.scrollhint{display:block}}
 .coal .big{font:700 16px var(--mono);color:var(--hi)}
 .tag{display:inline-block;font:600 10.5px Figtree;letter-spacing:.1em;text-transform:uppercase;border:1px solid #6E5530;color:#FDBB30;border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:2px}
 .filters{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 14px;align-items:end}
@@ -157,7 +159,7 @@ footer .strip{margin:0 0 16px}
       <div class="stat" role="listitem"><div class="n">89,325</div><div class="l">Posts analysed<button class="tip" aria-label="About this number" data-tip="All posts in the two files provided: 56,571 tweets (May 2009–Jan 2021) and 32,754 Truth Social posts (Feb 2022–Apr 2026).">?</button></div></div>
       <div class="stat" role="listitem"><div class="n">539</div><div class="l">Posts a month, 2025–26<button class="tip" aria-label="About this number" data-tip="Truth Social posts per month since 20 January 2025, reposts included. The median member of Congress posted 73 (Republicans) to 130 (Democrats) tweets a month in early 2020 (Pew Research Center).">?</button></div></div>
       <div class="stat" role="listitem"><div class="n">1.33×</div><div class="l">Usual engagement, text-only posts<button class="tip" aria-label="About this number" data-tip="Median engagement of text-only Truth Social posts divided by his usual engagement at the time (median of his own original posts in the 14 days either side).">?</button></div></div>
-      <div class="stat" role="listitem"><div class="n">−33%</div><div class="l">A link-only post vs a comparable text post<button class="tip" aria-label="About this number" data-tip="Article-link-only posts against comparable text-only posts on Truth Social, holding topic, style and tone constant (regression multiplier 0.67). On its own, a link-only post gets 0.72× his usual.">?</button></div></div>
+      <div class="stat" role="listitem"><div class="n">−29%</div><div class="l">A link-only post vs a comparable text post<button class="tip" aria-label="About this number" data-tip="Article-link-only posts against comparable text-only posts on Truth Social, holding topic, style, tone and how busy that day was constant (regression multiplier 0.71). On its own, a link-only post gets 0.72× his usual.">?</button></div></div>
       <div class="stat" role="listitem"><div class="n">2%</div><div class="l">US adults who get news on Truth Social<button class="tip" aria-label="About this number" data-tip="Share of US adults who regularly get news on Truth Social, against 40% on Facebook, 34% on YouTube, 20% on TikTok and 10% on X. Pew Research Center, 19 October 2026.">?</button></div></div>
     </div>
   </div>
@@ -178,11 +180,12 @@ footer .strip{margin:0 0 16px}
     <h2 style="margin-top:48px">Key findings</h2>
     <ol class="keys">
       <li><span><b>He out-posts almost everyone.</b> About 540 posts a month in his second term. In early 2020 he posted 959 times a month on Twitter including retweets (436 of his own). Even his own posts alone were three to six times the typical member of Congress.</span></li>
-      <li><span><b>Text-only posts beat links, clips and reposts.</b> A post that is only an article link gets 0.72× his usual; holding topic and style constant, that is 33% less than a comparable text post. On Twitter, links and media got 31% less.</span></li>
-      <li><span><b>A recognisable voice helps, but less than raw numbers suggest.</b> Holding length, format and topic constant, CAPITALS add 13% on Truth Social and 32% on Twitter, exclamation marks 20% on Truth Social, and nicknames for opponents 6–8%. Raw gaps of around 50% shrink because these posts tend to be long text posts.</span></li>
-      <li><span><b>Values content outperforms; endorsements do not.</b> Posts on patriotism, faith and national holidays get 21–28% more. Endorsing other candidates gets 34–37% less, yet made up 7% of his second-term posts.</span></li>
+      <li><span><b>Text-only posts beat links, clips and reposts.</b> A post that is only an article link gets 0.72× his usual; holding topic and style constant, that is 29% less than a comparable text post. On Twitter, links and media got 30% less.</span></li>
+      <li><span><b>A recognisable voice helps, but less than raw numbers suggest.</b> Holding length, format and topic constant, CAPITALS add 15% on Truth Social and 33% on Twitter, exclamation marks 16% on Truth Social, and nicknames for opponents 8%. Raw gaps of around 50% shrink because these posts tend to be long text posts.</span></li>
+      <li><span><b>Values content outperforms; endorsements do not.</b> Posts on patriotism, faith and national holidays get 17–26% more. Endorsing other candidates gets 29–36% less, yet made up 7% of his second-term posts.</span></li>
       <li><span><b>Owning a platform traded reach for control.</b> His typical first-term tweet got about 90,400 likes and reposts; his typical second-term Truth Social post gets about 16,600. Only 2% of US adults regularly get news on Truth Social.</span></li>
-      <li><span><b>The 2026 Trump writes longer and reposts less.</b> Reposts fell from 37% of his first-term feed to 9.5% in his second term. 27% of second-term posts run past 50 words, and those do 9% better.</span></li>
+      <li><span><b>The 2026 Trump writes longer and reposts less.</b> Reposts fell from 37% of his first-term feed to 9.5% in his second term. 27% of second-term posts run past 50 words, and those do 7% better.</span></li>
+      <li><span><b>His weakest posts come on his busiest days.</b> All else equal, each doubling of his posts that day is linked to 15% less engagement per post on Truth Social and 4% less on Twitter. 78% of his weakest tenth of Truth Social posts (74% on Twitter) fall on his busiest quarter of days.</span></li>
     </ol>
   </div>
 </section>
@@ -244,7 +247,7 @@ footer .strip{margin:0 0 16px}
 
     <div class="narrow">
       <p class="finding">Holding everything else constant, style and format move engagement more than topic does.</p>
-      <p>Simple averages can mislead: if most link posts are about the economy, "links do badly" and "the economy does badly" look the same. A regression separates them. It estimates each factor's effect while holding the others fixed. The orange bars are the elements of his recognisable voice. Most topics move engagement by 12% or less; the exceptions are endorsements (−34%), sport and culture (−24%) and patriotism, faith and holidays (+21%).</p>
+      <p>Simple averages can mislead: if most link posts are about the economy, "links do badly" and "the economy does badly" look the same. A regression separates them. It estimates each factor's effect while holding the others fixed. The orange bars are the elements of his recognisable voice. On Truth Social, most topics move engagement by 10% or less; the exceptions are endorsements (−29%), sport and culture (−22%) and patriotism, faith and holidays (+17%). The model also holds constant how many posts he made that day: each doubling is linked to 15% less engagement per post on Truth Social and 4% less on Twitter.</p>
     </div>
     <figure>
       <figcaption><p class="t">Format and voice matter more than topic</p><p class="s">Estimated effect on engagement, all else equal, as a multiple of a comparable text-only post. Bars show the 95% range.</p></figcaption>
@@ -256,7 +259,7 @@ footer .strip{margin:0 0 16px}
 
     <div class="narrow">
       <p class="finding">Foreign policy fills a large share of his best second-term posts because those posts are long and text-only, not because of the topic. Compared with posts of the same kind, it underperforms.</p>
-      <p>Foreign policy and the military appear in 22% of his second-term posts but 38% of his top 10% by engagement. A typical foreign-policy post runs 89 words, against 11 for his other posts (which include captionless images and videos), and 84% are text-only. Comparing long posts only, foreign policy gets 1.09× his usual and other long posts 1.50×. Holding length, format and style constant, the regression puts foreign policy at 0.99×: no effect of its own. Posts about opponents appear in 12% of posts and 27% of the top 10%. Patriotism, faith and holidays rise from 2.5% to 6.9%. Endorsements of other candidates fall from 7.4% to 2.9%. A post can touch several topics, so shares add up to more than 100%.</p>
+      <p>Foreign policy and the military appear in 22% of his second-term posts but 38% of his top 10% by engagement. A typical foreign-policy post runs 89 words, against 11 for his other posts (which include captionless images and videos), and 84% are text-only. Comparing long posts only, foreign policy gets 1.09× his usual and other long posts 1.50×. Holding length, format and style constant, the regression puts foreign policy at 0.98×: no effect of its own. Posts about opponents appear in 12% of posts and 27% of the top 10%. Patriotism, faith and holidays rise from 2.5% to 6.9%. Endorsements of other candidates fall from 7.4% to 2.9%. A post can touch several topics, so shares add up to more than 100%.</p>
     </div>
     <figure>
       <figcaption><p class="t">Foreign policy fills 38% of his top posts because they are long text posts, not because of the topic</p><p class="s">Share of all original posts vs share of his top 10% by engagement multiple, by topic, Truth Social since 20 January 2025</p></figcaption>
@@ -285,9 +288,9 @@ footer .strip{margin:0 0 16px}
   <div class="wrap">
     <div class="narrow">
       <h2 id="tn-h">Twitter 2016 vs Truth Social 2026</h2>
-      <h3 class="claim">The 2026 Trump posts longer, reposts less and posts earlier</h3>
+      <h3 class="claim">The 2026 Trump posts longer and reposts less</h3>
       <p class="finding">What has changed is the packaging. What still works is the same: text-only posts, emotion, CAPITALS and few links.</p>
-      <p>Between his first campaign and his second term, the typical post grew from 19 to 31 words, and more than a quarter now run past 50 words. Reposts of supporters, 37% of his first-term feed, are down to under 10%. A quarter of his posts are now images or videos with no caption. The Twitter archive cannot show how often he did this, because every media tweet carried a t.co link. His best-performing hour moved from mid-afternoon to the morning.</p>
+      <p>Between his first campaign and his second term, the typical post grew from 19 to 31 words, and more than a quarter now run past 50 words. Reposts of supporters, 37% of his first-term feed, are down to under 10%. A quarter of his posts are now images or videos with no caption. The Twitter archive cannot show how often he did this, because every media tweet carried a t.co link. His best-performing hour moved from mid-afternoon to the morning, though he posts at much the same times (median 3pm ET) and timing itself makes little difference once content is held constant.</p>
     </div>
     <div class="grid2">
       <figure style="margin-top:20px">
@@ -297,13 +300,13 @@ footer .strip{margin:0 0 16px}
       <figure style="margin-top:20px">
         <figcaption><p class="t">Early-morning posts now do best on Truth Social</p><p class="s">Median engagement as a multiple of his usual, by hour posted (US Eastern)</p></figcaption>
         <div class="chart" id="c-hour" role="img" aria-label="Line chart of engagement multiple by hour of day for Truth Social and Twitter."></div>
-        <div class="figfoot"><span>Timing mostly reflects what he posts at those hours: once content, format and style are held constant, posting between midnight and 6am makes almost no difference (1.03× on Truth Social, 1.01× on Twitter). Hours with fewer than 50 posts not shown. Twitter from June 2015.</span><button data-table="c-hour">View data</button></div>
+        <div class="figfoot"><span>Timing mostly reflects what he posts at those hours: once content, format and style are held constant, posting between midnight and 6am makes almost no difference (1.01× on Truth Social, 1.02× on Twitter). Hours with fewer than 50 posts not shown. Twitter from June 2015.</span><button data-table="c-hour">View data</button></div>
         <div class="datatable" id="c-hour-table"></div>
       </figure>
     </div>
     <div class="narrow">
       <p class="finding">Style still matters, but much less than the raw gaps suggest.</p>
-      <p>Each cell below compares posts with a feature against posts without it in the same period. On those raw comparisons, nicknames for opponents lifted engagement by 23% in his first term and by about half on Truth Social. But the posts that use them are different: on Truth Social, posts with a nickname run a median of 68 words against 15, and 94% are text-only against 41%. Holding length, format and topic constant, a nickname adds 6% on Truth Social and 8% on Twitter, CAPITALS 13% and 32%, and exclamation marks 20% and 5%. Since 2017, links have cost him a third or more of his usual engagement in every period.</p>
+      <p>Each cell below compares posts with a feature against posts without it in the same period. On those raw comparisons, nicknames for opponents lifted engagement by 23% in his first term and by about half on Truth Social. But the posts that use them are different: on Truth Social, posts with a nickname run a median of 68 words against 15, and 94% are text-only against 41%. Holding length, format and topic constant, a nickname adds 8% on both platforms, CAPITALS 15% on Truth Social and 33% on Twitter, and exclamation marks 16% and 5%. Since 2017, links have cost him a third or more of his usual engagement in every period.</p>
     </div>
     <figure>
       <figcaption><p class="t">Before adjusting for length and format, nicknames, CAPITALS and exclamation marks look strongest on Truth Social</p><p class="s">Raw engagement of posts with each feature relative to posts without it, by period (1.00 = no difference). Adjusted effects are smaller: see the text above.</p></figcaption>
@@ -367,7 +370,7 @@ footer .strip{margin:0 0 16px}
       <div class="row"><div class="k">Where people are</div><div>His main channel was Twitter, a general platform.</div><div>His main channel is his own. Only 2% of US adults get news on Truth Social, against 34% on YouTube, 20% on TikTok and 10% on X.</div><div class="so">An owned channel holds loyal supporters. Persuasion and new voters need the general platforms (lesson 7).</div></div>
       <div class="row"><div class="k">What a post looks like</div><div>A typical post ran 19 words, and every post had text.</div><div>A typical post runs 31 words, and a quarter of posts are images or videos with no caption.</div><div class="so">Long text works for an audience already invested (lesson 8). For new audiences, the 2026 equivalent is short direct-to-camera video. <span class="tag">Not measured here</span></div></div>
       <div class="row"><div class="k">Who his voters are</div><div>White voters without a degree were 63% of his voters.</div><div>They are 51%. Voters under 50 are 40%, Hispanic voters 10%, and men under 50 split almost evenly.</div><div class="so">One feed cannot reach every group. Match the tactic to where each group gets news (table below).</div></div>
-      <div class="row"><div class="k">What still works</div><div>Text-only tweets got 1.17× his usual. Holding other features constant, links and media got 31% less than a comparable text post, nicknames added 8% and CAPITALS 32% (Twitter, 2015–21).</div><div>Text-only posts get 1.33×. A link-only post gets 33% less than a comparable text post; nicknames add 6%, CAPITALS 13% and exclamation marks 20% (Truth Social, 2022–26).</div><div class="so">Text over links is the steadiest finding (lessons 1 and 2). Style adds a little on top: raw gaps of around 50% shrink to single or low double digits once length and format are held constant.</div></div>
+      <div class="row"><div class="k">What still works</div><div>Text-only tweets got 1.17× his usual. Holding other features constant, links and media got 30% less than a comparable text post, nicknames added 8% and CAPITALS 33% (Twitter, 2015–21).</div><div>Text-only posts get 1.33×. A link-only post gets 29% less than a comparable text post; nicknames add 8%, CAPITALS 15% and exclamation marks 16% (Truth Social, 2022–26).</div><div class="so">Text over links is the steadiest finding (lessons 1 and 2). Style adds a little on top: raw gaps of around 50% shrink to single or low double digits once length and format are held constant.</div></div>
       <p class="foot">Then and now: Trump's posts, Twitter 16 June 2015–19 January 2017 and Truth Social 20 January 2025–23 April 2026. Platform use: Pew Research Center, October 2026. Coalition: Pew validated voters, 2016 and 2024. "What still works": medians for text-only posts; other effects are regression estimates, all else equal, Twitter 16 June 2015–January 2021 and Truth Social February 2022–April 2026.</p>
     </div>
     <div class="plays" id="plays"></div>
@@ -378,12 +381,12 @@ footer .strip{margin:0 0 16px}
     </div>
     <figure>
       <figcaption><p class="t">Reaching the groups in Trump's 2024 coalition</p><p class="s">Coalition figures from Pew validated-voter study (June 2025); platform habits from Pew (October 2026)</p></figcaption>
-      <div style="overflow-x:auto"><table class="coal">
+      <p class="scrollhint" aria-hidden="true">Scroll sideways to see the full table →</p><div style="overflow-x:auto"><table class="coal">
         <thead><tr><th>Group</th><th>In the 2024 coalition</th><th>Where they get news</th><th>What carries, from his data <span class="tag">Inference</span></th></tr></thead>
         <tbody>
-          <tr><td>White voters without a degree</td><td><span class="big">51%</span> of Trump voters (63% in 2016)</td><td>Adults without a degree are more likely to get news from Facebook and TikTok</td><td>Plain text, no link-outs. Text posts beat links by a third.</td></tr>
-          <tr><td>Regular churchgoers</td><td><span class="big">64%</span> of monthly-or-more attenders voted Trump; 79% of his voters are Christian, 29% White evangelical</td><td>No platform split published by Pew</td><td>Faith, patriotism and national moments: his strongest topic, +21% to +28% all else equal.</td></tr>
-          <tr><td>Men under 50</td><td>Split <span class="big">49–48</span>, after backing Biden 53–43 in 2020</td><td>Men are more likely to get news on YouTube and X</td><td>Clear positions and contrast with opponents (+4% to +6%); personality over production.</td></tr>
+          <tr><td>White voters without a degree</td><td><span class="big">51%</span> of Trump voters (63% in 2016)</td><td>Adults without a degree are more likely to get news from Facebook and TikTok</td><td>Plain text, no link-outs. A link-only post gets 29% less than a comparable text post.</td></tr>
+          <tr><td>Regular churchgoers</td><td><span class="big">64%</span> of monthly-or-more attenders voted Trump; 79% of his voters are Christian, 29% White evangelical</td><td>No platform split published by Pew</td><td>Faith, patriotism and national moments: the strongest topic in the model (+17% to +26%), though a small topic the hand check could not confirm.</td></tr>
+          <tr><td>Men under 50</td><td>Split <span class="big">49–48</span>, after backing Biden 53–43 in 2020</td><td>Men are more likely to get news on YouTube and X</td><td>Clear positions and contrast with opponents (+5% to +6%); personality over production.</td></tr>
           <tr><td>Hispanic voters</td><td><span class="big">48%</span> voted Trump (36% in 2020); 10% of his voters</td><td>Hispanic Americans are more likely to get news on YouTube, Instagram and WhatsApp</td><td>Not measurable in these files. Test directly: Truth Social and X under-reach this group.</td></tr>
           <tr><td>New and irregular voters</td><td>2020 non-voters who voted in 2024 backed Trump <span class="big">54–42</span></td><td>Younger adults are more likely to get news on TikTok, Instagram and Reddit</td><td>Reached through general feeds, not an owned platform. Short native video in a direct voice (see the Mamdani case).</td></tr>
         </tbody>
@@ -398,7 +401,7 @@ footer .strip{margin:0 0 16px}
     <div class="narrow">
       <h2 id="ex-h">Explore the posts</h2>
       <h3 class="claim">See the best and worst performers for yourself</h3>
-      <p>805 example posts: his best and worst in each period, plus the best in every topic and format. Each shows its engagement as a multiple of his usual at the time. Text is shortened to 240 characters.</p>
+      <p>805 example posts: his best and worst in each period, plus the best in every topic and format. Each shows its engagement as a multiple of his usual at the time. Most of the weakest examples here (89%) come from his busiest days: 30 or more posts on Truth Social, or 21 or more on Twitter. Text is shortened to 240 characters.</p>
     </div>
     <div class="filters">
       <label>Period<select id="f-era"><option value="">All periods</option></select></label>
@@ -423,7 +426,7 @@ footer .strip{margin:0 0 16px}
       <li>Pew Research Center, <a href="https://www.pewresearch.org/internet/2020/07/16/congress-soars-to-new-heights-on-social-media/">"Congress Soars to New Heights on Social Media"</a>, 16 July 2020. Accessed 25 November 2026.</li>
       <li>Knox Digital, <a href="https://knox.digital/news/why-does-rupert-lowe-outperform-most-world-leaders-on-social-media">"Why does Rupert Lowe outperform most world leaders on social media?"</a>, R. Lowson, 9 November 2026. Accessed 25 November 2026.</li>
       <li>ABC7 Los Angeles, <a href="https://abc7.com/post/governor-gavin-newsoms-trolling-president-donald-trump-attracts-attention-complicated-redistricting-fight/17616948/">"Gov. Newsom's trolling of Trump attracts attention to complicated redistricting fight"</a>, August 2025. Accessed 25 November 2026.</li>
-      <li>NBC News, <a href="https://www.nbcnews.com/tech/internet/zohran-mamdani-social-media-cuomo-nyc-mayor-win-rcna215051">"How Zohran Mamdani used social media to beat Cuomo"</a>, 26 June 2025. Accessed 25 November 2026.</li>
+      <li>NBC News, <a href="https://www.nbcnews.com/tech/internet/zohran-mamdani-social-media-cuomo-nyc-mayor-win-rcna215051">"Zohran Mamdani's social media strategy was about more than viral videos"</a>, 26 June 2025. Accessed 25 November 2026.</li>
     </ul>
   </div>
 </section>
@@ -491,7 +494,7 @@ fetch('data/report.json').then(r=>r.json()).then(R=>{
   const months=[];{let y=2009,m=5;while(y<2026||(y===2026&&m<=4)){months.push(`${y}-${String(m).padStart(2,'0')}`);m++;if(m>12){m=1;y++}}}
   const byM={};tl.forEach(r=>byM[r.month]=r);
   function volume(){
-    const id='c-volume',W=width(id),H=280,pl=44,pb=30,pt=30;const s=svg(document.getElementById(id),W,H);
+    const id='c-volume',W=width(id),NV=narrow(W),H=NV?312:280,pl=44,pb=30,pt=NV?62:30;const rowY=k=>NV?pt-46+k*14:pt-14+(k%2)*14;const s=svg(document.getElementById(id),W,H);
     const max=1500,bw=(W-pl-8)/months.length;const Y=v=>pt+(H-pt-pb)*(1-v/max);
     [0,500,1000,1500].forEach(v=>txt(s,pl-8,Y(v)+4,fmtInt(v),{'text-anchor':'end','font-size':11.5}));
     months.forEach((mo,i)=>{const r=byM[mo];if(!r)return;const x=pl+i*bw;const v=r.posts;const sec=mo>='2025-01';
@@ -499,7 +502,7 @@ fetch('data/report.json').then(r=>r.json()).then(R=>{
       tip(b,`<b>${mo}</b> · ${r.platform}<br>${fmtInt(v)} posts, of which ${fmtInt(r.reposts)} reposts`)});
     for(let y=2010;y<=2026;y+=2){const i=months.indexOf(`${y}-01`);txt(s,pl+i*bw,H-8,String(y),{'text-anchor':'middle','font-size':11.5})}
     const ann=[['2015-06','Campaign launch'],['2017-01','First term'],['2021-01','Twitter suspension'],['2025-01','Second term']];
-    ann.forEach(([mo,l],k)=>{const i=months.indexOf(mo);const x=pl+i*bw;el('line',{x1:x,x2:x,y1:pt-12+(k%2)*14,y2:Y(0),stroke:C.ink2,'stroke-dasharray':'2 4','stroke-width':1},s);txt(s,x+4,pt-14+(k%2)*14,l,{'font-size':11.5,fill:C.ink2})});
+    ann.forEach(([mo,l],k)=>{const i=months.indexOf(mo);const x=pl+i*bw;el('line',{x1:x,x2:x,y1:rowY(k)+2,y2:Y(0),stroke:C.ink2,'stroke-dasharray':'2 4','stroke-width':1},s);const t=txt(s,x+4,rowY(k),l,{'font-size':11.5,fill:C.ink2});if(t&&t.getComputedTextLength&&x+4+t.getComputedTextLength()>W-2){t.setAttribute('x',x-4);t.setAttribute('text-anchor','end')}});
     table(id,[{h:'Month',k:'month'},{h:'Platform',k:'platform'},{h:'Posts',k:'posts',num:1,f:fmtInt},{h:'Reposts',k:'reposts',num:1,f:fmtInt}],tl);
   }
   function engline(){
@@ -609,13 +612,13 @@ fetch('data/report.json').then(r=>r.json()).then(R=>{
 // ---- playbook
 const PLAYS=[
  ['Lead with text, in a voice people recognise','1.33×','Text-only posts get 1.33× his usual on Truth Social and 1.17× on Twitter. Every other format falls below usual.','Works only if the voice is genuinely the politician\'s own; a borrowed style without the substance tends to read as imitation.'],
- ['Put the point in the post, not behind a link','−33%','An article link with no text gets 0.72× his usual; against a comparable text post, that is 33% less. Links and media cost 31% on Twitter. His audience consistently prefers the point to the pointer.','If the link matters, write the key line first and treat the link as a source.'],
+ ['Put the point in the post, not behind a link','−29%','An article link with no text gets 0.72× his usual; against a comparable text post, that is 29% less. Links and media cost 30% on Twitter. His audience consistently prefers the point to the pointer.','If the link matters, write the key line first and treat the link as a source.'],
  ['Take a clear position; neutral posts get ignored','0.80×','Posts labelled neutral get 0.80× his usual; negative 1.40×, positive 1.21×. Pew finds posts naming the other side lift engagement for both parties.','Sharper language carries reputational and moderation risk, and a few loud accounts can come to stand for a whole party.'],
- ['Use values and national moments','+21%','Patriotism, faith and holiday posts get 21% more on Truth Social and 28% more on Twitter, all else equal. 64% of monthly churchgoers voted Trump in 2024.','Works when consistent with the politician\'s record; one-off gestures read as tokenistic.'],
- ['Don\'t rely on endorsements for reach','−34%','Endorsing other candidates is his weakest topic: −34% on Truth Social, −37% on Twitter. It filled 7% of second-term posts but 3% of the top 10%.','Endorsements still matter offline. Make them about the shared cause, not the candidate CV.'],
+ ['Use values and national moments','+17%','Patriotism, faith and holiday posts get 17% more on Truth Social and 26% more on Twitter, all else equal. 64% of monthly churchgoers voted Trump in 2024.','Works when consistent with the politician\'s record; one-off gestures read as tokenistic.'],
+ ['Don\'t rely on endorsements for reach','−29%','Endorsing other candidates is his weakest topic: −29% on Truth Social, −36% on Twitter. It filled 7% of second-term posts but 3% of the top 10%.','Endorsements still matter offline. Make them about the shared cause, not the candidate CV.'],
  ['Volume needs a reason to exist','539/mo','He posts about 540 times a month; the typical member of Congress posts 73 to 130 tweets. Pew finds the top 10% of members take three-quarters of all engagement.','Volume amplifies a voice people already want to hear. Without that, more posts mean more ignored posts.'],
  ['Own a channel, but don\'t live only there','2%','Truth Social gives him control, but his typical post there earns about a fifth of a first-term tweet. Only 2% of adults get news there, against 34% on YouTube and 20% on TikTok.','Use an owned channel for loyal supporters and the general platforms for persuasion and new voters.'],
- ['Long-form statements work on a loyal feed','+9%','Posts over 50 words do 9% better on Truth Social, all else equal, and make up 27% of his second-term posts. On Twitter, long posts did no better.','Long text works for an audience already invested. For new audiences, the 2026 equivalent is short direct-to-camera video.'],
+ ['Long-form statements work on a loyal feed','+7%','Posts over 50 words do 7% better on Truth Social, all else equal, and make up 27% of his second-term posts. On Twitter, long posts did no better.','Long text works for an audience already invested. For new audiences, the 2026 equivalent is short direct-to-camera video.'],
 ];
 document.getElementById('plays').innerHTML=PLAYS.map((p,i)=>`<div class="play"><div class="num">${String(i+1).padStart(2,'0')}</div><h4>${p[0]}</h4><div class="ev">${p[1]}</div><p>${p[2]}</p><p class="care"><b style="color:var(--ink2)">Caution:</b> ${p[3]}</p></div>`).join('');
 
