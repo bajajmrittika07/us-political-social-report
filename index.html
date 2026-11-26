@@ -54,9 +54,14 @@ p{margin:0 0 16px}
 .howto .big{font:700 40px/1 var(--mono);color:var(--hi)}
 .howto p{margin:0 0 8px;color:var(--ink2);font-size:15.5px}
 .keys{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;counter-reset:k}
-.keys li{counter-increment:k;display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:16px;color:var(--ink2)}
+.keys li{counter-increment:k;display:grid;grid-template-columns:44px 1fr 260px;align-items:start;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:16px;color:var(--ink2)}
 .keys li::before{content:counter(k,decimal-leading-zero);font:700 18px/1.3 var(--mono);color:var(--hi)}
 .keys b{color:var(--ink)}
+.keys .kt>span{display:block}.keys .kgo{display:inline-block;margin-top:8px;font-size:13px;color:var(--hi);text-decoration:none;border-bottom:1px solid rgba(232,136,48,.35)}.keys .kgo:hover{border-color:var(--hi)}
+.keys .kmini{min-height:70px}.keys .kmini svg{width:100%;height:auto;display:block}
+figure{scroll-margin-top:18px}
+figure.flash{box-shadow:0 0 0 2px var(--hi);transition:box-shadow .6s}
+@media (max-width:760px){.keys li{grid-template-columns:36px 1fr}.keys .kmini{grid-column:2;margin-top:6px}}
 figure{margin:28px 0 8px;background:var(--surface);border-radius:14px;padding:24px 24px 16px;border:1px solid #232020}
 figcaption .t{font:600 18px/1.35 Figtree;color:#F0F0F8;margin:0}
 figcaption .s{font-size:13.5px;color:var(--label);margin:4px 0 0}
@@ -181,13 +186,13 @@ footer .strip{margin:0 0 16px}
 
     <h2 style="margin-top:48px">Key findings</h2>
     <ol class="keys">
-      <li><span><b>He out-posts almost everyone.</b> About 540 posts a month in his second term. In early 2020 he posted 959 times a month on Twitter including retweets (436 of his own). Even his own posts alone were three to six times the typical member of Congress.</span></li>
-      <li><span><b>Text-only posts beat links, clips and reposts.</b> A post that is only an article link gets 0.72× his usual; holding topic and style constant, that is 29% less than a comparable text post. On Twitter, links and media got 30% less.</span></li>
-      <li><span><b>A recognisable voice helps, but less than raw numbers suggest.</b> Holding length, format and topic constant, CAPITALS add 15% on Truth Social and 33% on Twitter, exclamation marks 16% on Truth Social, and nicknames for opponents 8%. Raw gaps of around 50% shrink because these posts tend to be long text posts.</span></li>
-      <li><span><b>Values content outperforms; endorsements do not.</b> Posts on patriotism, faith and national holidays get 17–26% more. Endorsing other candidates gets 29–36% less, yet made up 7% of his second-term posts.</span></li>
-      <li><span><b>Owning a platform traded reach for control.</b> His typical first-term tweet got about 90,400 likes and reposts; his typical second-term Truth Social post gets about 16,600. Only 2% of US adults regularly get news on Truth Social.</span></li>
-      <li><span><b>The 2026 Trump writes longer and reposts less.</b> Reposts fell from 37% of his first-term feed to 9.5% in his second term. 27% of second-term posts run past 50 words, and those do 7% better.</span></li>
-      <li><span><b>His weakest posts come on his busiest days.</b> All else equal, each doubling of his posts that day is linked to 15% less engagement per post on Truth Social and 4% less on Twitter. 78% of his weakest tenth of Truth Social posts (74% on Twitter) fall on his busiest quarter of days.</span></li>
+      <li><div class="kt"><span><b>He out-posts almost everyone.</b> About 540 posts a month in his second term. In early 2020 he posted 959 times a month on Twitter including retweets (436 of his own). Even his own posts alone were three to six times the typical member of Congress.</span><a class="kgo" href="#c-congress" data-goto="c-congress">See the Congress comparison ↓</a></div><div class="kmini" data-mini="congress" aria-hidden="true"></div></li>
+      <li><div class="kt"><span><b>Owning a platform traded reach for control.</b> His typical first-term tweet got about 90,400 likes and reposts; his typical second-term Truth Social post gets about 16,600. Only 2% of US adults regularly get news on Truth Social.</span><a class="kgo" href="#c-eng" data-goto="c-eng">See the engagement over time ↓</a></div><div class="kmini" data-mini="eng" aria-hidden="true"></div></li>
+      <li><div class="kt"><span><b>Text-only posts beat links, clips and reposts.</b> A post that is only an article link gets 0.72× his usual; holding topic and style constant, that is 29% less than a comparable text post. On Twitter, links and media got 30% less.</span><a class="kgo" href="#c-format" data-goto="c-format">See the formats chart ↓</a></div><div class="kmini" data-mini="format" aria-hidden="true"></div></li>
+      <li><div class="kt"><span><b>A recognisable voice helps, but less than raw numbers suggest.</b> Holding length, format and topic constant, CAPITALS add 15% on Truth Social and 33% on Twitter, exclamation marks 16% on Truth Social, and nicknames for opponents 8%. Raw gaps of around 50% shrink because these posts tend to be long text posts.</span><a class="kgo" href="#c-reg" data-goto="c-reg">See the regression chart ↓</a></div><div class="kmini" data-mini="voice" aria-hidden="true"></div></li>
+      <li><div class="kt"><span><b>Values content outperforms; endorsements do not.</b> Posts on patriotism, faith and national holidays get 17–26% more. Endorsing other candidates gets 29–36% less, yet made up 7% of his second-term posts.</span><a class="kgo" href="#c-reg" data-goto="c-reg">See the regression chart ↓</a></div><div class="kmini" data-mini="values" aria-hidden="true"></div></li>
+      <li><div class="kt"><span><b>His weakest posts come on his busiest days.</b> All else equal, each doubling of his posts that day is linked to 15% less engagement per post on Truth Social and 4% less on Twitter. 78% of his weakest tenth of Truth Social posts (74% on Twitter) fall on his busiest quarter of days.</span><a class="kgo" href="#c-reg" data-goto="c-reg">See the regression chart ↓</a></div><div class="kmini" data-mini="busy" aria-hidden="true"></div></li>
+      <li><div class="kt"><span><b>The 2026 Trump writes longer and reposts less.</b> Reposts fell from 37% of his first-term feed to 9.5% in his second term. 27% of second-term posts run past 50 words, and those do 7% better.</span><a class="kgo" href="#scorecard" data-goto="scorecard">See the 2016 vs 2026 scorecard ↓</a></div><div class="kmini" data-mini="then" aria-hidden="true"></div></li>
     </ol>
   </div>
 </section>
@@ -626,7 +631,48 @@ fetch('data/report.json').then(r=>r.json()).then(R=>{
     document.getElementById('c-peers-none').textContent=noTS.length?'No account found: '+noTS.join(', ')+'.':'';
     table('c-peers',[{h:'Politician',k:'name'},{h:'Party',k:'party'},{h:'Role',k:'role'},{h:'Platform',k:'platform'},{h:'Followers',k:'followers',num:1,f:(v,r)=>r.shown_as},{h:'Checked',k:'checked_on'}],
       [...P].sort((a,b)=>a.platform.localeCompare(b.platform)||b.followers-a.followers))}
-  function drawAll(){volume();engline();congress();formats();reg();topics();tone();scorecard();hours();style();leaders();peers();pew()}
+  // ---- mini charts in the key-findings boxes (same data as the full charts)
+  function minis(){
+    const mk=(div,h)=>{const W=Math.max(200,div.clientWidth||230);return [svg(div,W,h),W]};
+    const lab=(s,x,y,t,o={})=>txt(s,x,y,t,Object.assign({'font-size':11.5,fill:C.label},o));
+    const val=(s,x,y,t,o={})=>txt(s,x,y,t,Object.assign({'font-size':11.5,fill:C.ink,'font-weight':600,'font-family':'ui-monospace,Menlo,monospace'},o));
+    // horizontal bars from zero
+    const bars=(div,rows)=>{const rh=19,[s,W]=mk(div,rows.length*rh+4),lw=Math.min(112,W*0.44),x0=lw+6,xw=W-x0-46,m=Math.max(...rows.map(r=>r.v));
+      rows.forEach((r,i)=>{const y=i*rh+2;lab(s,lw,y+12,r.l,{'text-anchor':'end',fill:r.hi?C.ink:C.label});const w=Math.max(2,r.v/m*xw);
+        el('rect',{x:x0,y:y+3,width:w,height:11,rx:3,fill:r.hi?C.hi:C.grey},s);val(s,x0+w+4,y+12,r.t)})};
+    // diverging bars around zero (signed % effects)
+    const div=(div_,rows)=>{const rh=19,[s,W]=mk(div_,rows.length*rh+4),lw=Math.min(98,W*0.44),x0=lw+6,xw=W-x0-6,m=Math.max(...rows.map(r=>Math.abs(r.v)))*1.35,cx=x0+xw/2;
+      el('line',{x1:cx,x2:cx,y1:0,y2:rows.length*rh+4,stroke:C.label,'stroke-width':1,'stroke-dasharray':'2 3'},s);
+      rows.forEach((r,i)=>{const y=i*rh+2,w=Math.max(2,Math.abs(r.v)/m*xw/2),x=r.v>=0?cx:cx-w;lab(s,lw,y+12,r.l,{'text-anchor':'end',fill:r.hi?C.ink:C.label});
+        el('rect',{x,y:y+3,width:w,height:11,rx:3,fill:r.hi?C.hi:C.grey},s);val(s,r.v>=0?cx+w+4:cx+4,y+12,r.t,{'text-anchor':'start'})})};
+    const reg=(pl,l)=>R.regression.find(r=>r.platform===pl&&r.label===l).multiplier;
+    const pc=m=>(m>=1?'+':'−')+Math.round(Math.abs(m-1)*100)+'%';
+    const E=Object.fromEntries(R.eras.map(e=>[e.era,e]));
+    const D={
+      congress:d=>{const v=R.volume_compare;bars(d,[{l:'Trump, incl. RTs',v:v.trump_jan_may_2020_per_month,t:fmtInt(v.trump_jan_may_2020_per_month)},{l:'Trump, own posts',v:v.trump_jan_may_2020_own_per_month,t:fmtInt(v.trump_jan_may_2020_own_per_month),hi:1},{l:'Median Dem',v:130,t:'130'},{l:'Median Rep',v:73,t:'73'}])},
+      eng:d=>{const [s,W]=mk(d,92),lo=Math.log10(30),hi=Math.log10(300000);const ms=[...new Set(R.timeline.map(r=>r.month))].sort();const X=i=>4+i/(ms.length-1)*(W-8),Y=v=>76-(Math.log10(v)-lo)/(hi-lo)*56;
+        ['Twitter','Truth Social'].forEach(p=>{const pts=ms.map((mo,i)=>{const r=R.timeline.find(t=>t.month===mo&&t.platform===p);return r&&r.median_eng>0?[X(i),Y(r.median_eng)]:null}).filter(Boolean);
+          el('path',{d:'M'+pts.map(q=>q.join(',')).join('L'),fill:'none',stroke:p==='Truth Social'?C.hi:C.grey,'stroke-width':1.6},s)});
+        lab(s,4,11,'Typical likes + reposts, log scale');lab(s,4,90,'Twitter 2009–21');lab(s,W-4,90,'Truth Social',{'text-anchor':'end',fill:C.hi})},
+      format:d=>{const rows=R.formats.filter(r=>r.platform==='Truth Social').sort((a,b)=>b.median_uplift-a.median_uplift).slice(0,4);
+        const sh={'Text only':'Text only','Text + article link':'Text + link','Image/video, no caption':'Media, no caption','Video link':'Video link','Article link only':'Link only','Shared Truth post':'Shared post'};
+        const all=R.formats.filter(r=>r.platform==='Truth Social').sort((a,b)=>b.median_uplift-a.median_uplift);const pick=[all[0],all[1],all.find(r=>r.format==='Article link only')];
+        bars(d,pick.map(r=>({l:sh[r.format]||r.format,v:r.median_uplift,t:fmtX(r.median_uplift),hi:r.format==='Text only'})))},
+      voice:d=>bars(d,[['CAPITALS','CAPITALS (¼ of words or more)'],['Exclamation','Exclamation mark'],['Nickname','Nickname for an opponent']].map(([l,k])=>{const m=reg('Truth Social',k);return {l,v:m-1,t:pc(m),hi:l==='CAPITALS'}})),
+      values:d=>div(d,[['Patriotism, faith','Patriotism, faith & holidays',1],['Endorsements','Endorsements',0]].map(([l,k,h])=>{const m=reg('Truth Social',k);return {l,v:m-1,t:pc(m),hi:h}})),
+      busy:d=>div(d,[['Truth Social',1],['Twitter',0]].map(([pl,h])=>{const m=reg(pl,'Posts that day (per doubling)');return {l:pl,v:m-1,t:pc(m),hi:h}})),
+      then:d=>{const rows=[['Reposts in feed',E['Twitter 2017–21'].repost_share*100,E['Truth Social 2025–26'].repost_share*100,v=>v.toFixed(v<10?1:0)+'%','first term → 2025–26'],
+                            ['Words per post',E['Twitter 2015–16'].median_words,E['Truth Social 2025–26'].median_words,v=>String(Math.round(v)),'2015–16 → 2025–26']];
+        const [s,W]=mk(d,rows.length*30+2),lw=Math.min(98,W*0.44),x0=lw+10,xw=W-x0-34;
+        rows.forEach(([l,a,b,f,sub],i)=>{const y=i*30+12,m=Math.max(a,b)*1.05,X=v=>x0+v/m*xw;lab(s,lw,y+3,l,{'text-anchor':'end',fill:C.ink2});lab(s,lw,y+15,sub,{'text-anchor':'end','font-size':9});
+          el('line',{x1:X(a),x2:X(b),y1:y,y2:y,stroke:C.grey,'stroke-width':2},s);el('circle',{cx:X(a),cy:y,r:4,fill:C.grey},s);el('circle',{cx:X(b),cy:y,r:4.5,fill:C.hi},s);
+          val(s,X(a),y-7,f(a),{'text-anchor':'middle',fill:C.label});val(s,X(b),y+16,f(b),{'text-anchor':'middle'})})},
+    };
+    document.querySelectorAll('.kmini').forEach(d=>{const f=D[d.dataset.mini];if(f)f(d)});
+  }
+  document.addEventListener('click',e=>{const a=e.target.closest('.kgo');if(!a)return;const t=document.getElementById(a.dataset.goto);if(!t)return;e.preventDefault();
+    const f=t.closest('figure')||t;f.scrollIntoView({behavior:'smooth',block:'start'});f.classList.add('flash');setTimeout(()=>f.classList.remove('flash'),1600)});
+  function drawAll(){volume();engline();congress();formats();reg();topics();tone();scorecard();hours();style();leaders();peers();pew();minis()}
   drawAll();let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(drawAll,150)});
   document.querySelectorAll('.toggle button').forEach(b=>b.addEventListener('click',()=>{
     b.parentElement.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
