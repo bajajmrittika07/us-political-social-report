@@ -111,6 +111,8 @@ td.num,th.num{text-align:right;font-family:var(--mono)}
 .play .care{font-size:13.5px;color:var(--muted);margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
 .coal td{vertical-align:top;font-size:14px;color:var(--ink2)}
 .coal td:first-child{color:var(--ink);font-weight:600;min-width:150px}
+.peers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.peers .ph{font:600 12px Figtree;letter-spacing:.12em;text-transform:uppercase;color:var(--label);margin:0 0 4px}.peers .nil{font-size:12.5px;color:var(--muted);margin:4px 0 0}
+@media (max-width:900px){.peers{grid-template-columns:1fr}}
 .scrollhint{display:none;font-size:12.5px;color:var(--muted);margin:0 0 6px;text-align:right}
 @media (max-width:760px){.scrollhint{display:block}}
 .coal .big{font:700 16px var(--mono);color:var(--hi)}
@@ -333,6 +335,21 @@ footer .strip{margin:0 0 16px}
     </figure>
 
     <div class="narrow">
+      <p class="finding">Among senior US politicians, Trump's following is far larger than anyone else's: almost nine times the next largest on X.</p>
+      <p>We checked six senior figures, three from each party, on their public profiles on 26 November 2026. Trump has 111.7 million followers on X against 12.6 million for Alexandria Ocasio-Cortez, the next largest; on Instagram the gap narrows to almost five times. His X following is more than eight times his Truth Social following, the platform where he now mainly posts, and Zohran Mamdani has about three times as many followers on Instagram as on X. Followers measure potential reach, not how many people see, engage with or are persuaded by a post.</p>
+    </div>
+    <figure>
+      <figcaption><p class="t">Trump has almost nine times as many X followers as the next senior US politician</p><p class="s">Followers on each platform, six senior politicians, three from each party, 26 November 2026. Each platform has its own scale.</p></figcaption>
+      <div class="peers">
+        <div><p class="ph">X</p><div class="chart" id="c-peers-x" role="img" aria-label="Bar chart of X followers for six senior US politicians."></div></div>
+        <div><p class="ph">Instagram</p><div class="chart" id="c-peers-ig" role="img" aria-label="Bar chart of Instagram followers for six senior US politicians."></div></div>
+        <div><p class="ph">Truth Social</p><div class="chart" id="c-peers-ts" role="img" aria-label="Bar chart of Truth Social followers for the three politicians with an account."></div><p class="nil" id="c-peers-none"></p></div>
+      </div>
+      <div class="figfoot"><span>Follower counts checked by hand on public profiles, 26 November 2026. Counts are as shown on each profile (rounded). Some are personal accounts, some official office accounts. TikTok not checked.</span><button data-table="c-peers">View data</button></div>
+      <div class="datatable" id="c-peers-table"></div>
+    </figure>
+
+    <div class="narrow">
       <p class="finding">Most Americans get news on the big general platforms, not on the one Trump owns.</p>
       <p>In 2026, 40% of US adults regularly get news on Facebook, 34% on YouTube, 23% on Instagram and 20% on TikTok. X stands at 10% and Truth Social at 2%. Pew finds Republicans slightly more likely than Democrats to get news on Facebook and X, and Democrats more likely on Instagram, TikTok and Reddit. YouTube is even.</p>
     </div>
@@ -345,7 +362,7 @@ footer .strip{margin:0 0 16px}
 
     <div class="narrow">
       <p class="finding">His playbook now travels across parties.</p>
-      <p>Senior figures in both parties have adopted parts of it. Pew's study of Congress found that mentioning the other side's leading figures lifted engagement for Democrats and Republicans alike, consistent with our finding that opponent posts beat his usual. Two Democratic cases show the range: one copied his tone, the other his directness in a different format.</p>
+      <p>Senior figures in both parties have adopted parts of it. Pew's study of Congress found that mentioning the other side's leading figures lifted engagement for Democrats and Republicans alike, consistent with our finding that opponent posts beat his usual. The cases below cover both parties: two Democrats who borrowed parts of his style, evidence from Congress on both sides, and Trump's own move to a platform he owns. The follower snapshot above covers three senior figures from each party.</p>
     </div>
     <div class="cases">
       <div class="case"><div class="who">Governor of California · Democrat</div><h4>Gavin Newsom's press office copied the tone</h4><p>From August 2025 the office's X account adopted what ABC7 described as "all caps, MAGA phrases" and personal praise in Trump's style. The office reported 250,000 new followers that month and an engagement rate above 50%. A UC Berkeley poll for the LA Times found 59% of California voters wanted him to keep going.</p><p class="src">Figures from Newsom's office, reported by ABC7 Los Angeles, August 2025.</p></div>
@@ -598,7 +615,18 @@ fetch('data/report.json').then(r=>r.json()).then(R=>{
   function pew(){const P=[['Facebook',40],['YouTube',34],['Instagram',23],['TikTok',20],['X',10],['Reddit',9],['Nextdoor',8],['LinkedIn',6],['WhatsApp',5],['Rumble',2],['Truth Social',2],['Bluesky',1]];
     const rows=P.map(([l,v])=>({label:l,value:v,hi:l==='Truth Social',valueLabel:v+'%',tipHtml:`<b>${l}</b><br>${v}% of US adults regularly get news here (2026)`}));
     hbars('c-pew',rows,{labelW:140,rowH:28,max:46});table('c-pew',[{h:'Platform',k:'label'},{h:'% of US adults',k:'value',num:1}],rows)}
-  function drawAll(){volume();engline();congress();formats();reg();topics();tone();scorecard();hours();style();leaders();pew()}
+  // ---- senior US politicians, hand-collected follower snapshot
+  function peers(){if(!R.peers)return;const P=R.peers,tag=p=>p==='Republican'?'R':p==='Democrat'?'D':p[0];
+    const fmtF=v=>v>=1e6?(v/1e6).toFixed(1).replace(/\.0$/,'')+'m':(v/1e3).toFixed(v<1e5?1:0).replace(/\.0$/,'')+'k';
+    [['X','c-peers-x'],['Instagram','c-peers-ig'],['Truth Social','c-peers-ts']].forEach(([pl,id])=>{
+      const rows=P.filter(r=>r.platform===pl).sort((a,b)=>b.followers-a.followers).map(r=>({label:`${r.name} (${tag(r.party)})`,value:r.followers,hi:r.name==='Donald Trump',valueLabel:fmtF(r.followers),
+        tipHtml:`<b>${r.name}</b> · ${r.party}<br>${r.role}<br>${pl}: ${fmtInt(r.followers)} followers (shown as ${r.shown_as})<br>Checked ${r.checked_on}`}));
+      hbars(id,rows,{labelW:190,rowH:30})});
+    const names=[...new Set(P.map(r=>r.name))],noTS=names.filter(n=>!P.some(r=>r.name===n&&r.platform==='Truth Social'));
+    document.getElementById('c-peers-none').textContent=noTS.length?'No account found: '+noTS.join(', ')+'.':'';
+    table('c-peers',[{h:'Politician',k:'name'},{h:'Party',k:'party'},{h:'Role',k:'role'},{h:'Platform',k:'platform'},{h:'Followers',k:'followers',num:1,f:(v,r)=>r.shown_as},{h:'Checked',k:'checked_on'}],
+      [...P].sort((a,b)=>a.platform.localeCompare(b.platform)||b.followers-a.followers))}
+  function drawAll(){volume();engline();congress();formats();reg();topics();tone();scorecard();hours();style();leaders();peers();pew()}
   drawAll();let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(drawAll,150)});
   document.querySelectorAll('.toggle button').forEach(b=>b.addEventListener('click',()=>{
     b.parentElement.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
