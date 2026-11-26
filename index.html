@@ -506,7 +506,7 @@ function hbars(id,rows,o={}){
     txt(s,x0+bw+8,by+bh/2+1,r.valueLabel||String(r.value),{'dominant-baseline':'middle',fill:C.ink,'font-size':13.5,'font-weight':600,'font-family':'ui-monospace,Menlo,monospace'});
     const hit=el('rect',{x:0,y,width:W,height:rowH,fill:'transparent'},s); if(r.tipHtml)tip(hit,r.tipHtml);
   });
-  if(o.ref!=null){const xr=X(o.ref);el('line',{x1:xr,x2:xr,y1:14,y2:H,stroke:C.ink2,'stroke-dasharray':'3 4','stroke-width':1},s);txt(s,xr,10,o.refLabel||'his usual',{'text-anchor':'middle','font-size':12,fill:C.ink2})}
+  if(o.ref!=null){const xr=X(o.ref);el('line',{x1:xr,x2:xr,y1:17,y2:H,stroke:C.ink2,'stroke-dasharray':'3 4','stroke-width':1},s);txt(s,xr,13,o.refLabel||'his usual',{'text-anchor':'middle','font-size':12,fill:C.ink2})}
 }
 
 fetch('data/report.json').then(r=>r.json()).then(R=>{
@@ -522,7 +522,7 @@ fetch('data/report.json').then(r=>r.json()).then(R=>{
     months.forEach((mo,i)=>{const r=byM[mo];if(!r)return;const x=pl+i*bw;const v=r.posts;const sec=mo>='2025-01';
       const b=el('rect',{x:x+0.3,y:Y(v),width:Math.max(1,bw-0.6),height:Y(0)-Y(v),fill:sec?C.hi:C.grey},s);
       tip(b,`<b>${mo}</b> · ${r.platform}<br>${fmtInt(v)} posts, of which ${fmtInt(r.reposts)} reposts`)});
-    for(let y=2010;y<=2026;y+=2){const i=months.indexOf(`${y}-01`);txt(s,pl+i*bw,H-8,String(y),{'text-anchor':'middle','font-size':11.5})}
+    for(let y=2010;y<=2026;y+=(narrow(W)?4:2)){const i=months.indexOf(`${y}-01`);const t=txt(s,pl+i*bw,H-8,String(y),{'text-anchor':'middle','font-size':11.5});const hw=t.getComputedTextLength()/2;if(pl+i*bw+hw>W-1)t.setAttribute('x',W-1-hw)}
     const ann=[['2015-06','Campaign launch'],['2017-01','First term'],['2021-01','Twitter suspension'],['2025-01','Second term']];
     ann.forEach(([mo,l],k)=>{const i=months.indexOf(mo);const x=pl+i*bw;el('line',{x1:x,x2:x,y1:rowY(k)+2,y2:Y(0),stroke:C.ink2,'stroke-dasharray':'2 4','stroke-width':1},s);const t=txt(s,x+4,rowY(k),l,{'font-size':11.5,fill:C.ink2});if(t&&t.getComputedTextLength&&x+4+t.getComputedTextLength()>W-2){t.setAttribute('x',x-4);t.setAttribute('text-anchor','end')}});
     table(id,[{h:'Month',k:'month'},{h:'Platform',k:'platform'},{h:'Posts',k:'posts',num:1,f:fmtInt},{h:'Reposts',k:'reposts',num:1,f:fmtInt}],tl);
@@ -535,8 +535,8 @@ fetch('data/report.json').then(r=>r.json()).then(R=>{
       el('path',{d:'M'+pts.map(q=>q[0]+','+q[1]).join('L'),fill:'none',stroke:p==='Truth Social'?C.hi:C.grey,'stroke-width':2,'stroke-linejoin':'round'},s);
       pts.forEach(q=>{const c=el('circle',{cx:q[0],cy:q[1],r:6,fill:'transparent'},s);tip(c,`<b>${q[2]}</b> · ${p}<br>Median ${fmtInt(q[3])} likes + reposts per original post`)});
       const last=pts[pts.length-1];txt(s,p==='Twitter'?last[0]-6:last[0]-4,p==='Twitter'?last[1]-12:last[1]-16,p,{'text-anchor':'end','font-size':12.5,fill:p==='Twitter'?C.ink2:C.hi,'font-weight':600})});
-    const i15=months.indexOf('2015-06');el('line',{x1:pl+i15*bw,x2:pl+i15*bw,y1:pt,y2:H-pb,stroke:C.ink2,'stroke-dasharray':'2 4'},s);txt(s,pl+i15*bw+4,pt+10,'Campaign launch: analysis starts',{'font-size':11.5,fill:C.ink2});
-    for(let y=2010;y<=2026;y+=2){const i=months.indexOf(`${y}-01`);txt(s,pl+i*bw,H-8,String(y),{'text-anchor':'middle','font-size':11.5})}
+    const i15=months.indexOf('2015-06');el('line',{x1:pl+i15*bw,x2:pl+i15*bw,y1:pt,y2:H-pb,stroke:C.ink2,'stroke-dasharray':'2 4'},s);{const cx=pl+i15*bw+4,t=txt(s,cx,pt+10,'Campaign launch: analysis starts',{'font-size':11.5,fill:C.ink2});if(cx+t.getComputedTextLength()>W-2){t.textContent='';['Campaign launch:','analysis starts'].forEach((l,k)=>{const sp=el('tspan',{x:cx,dy:k?14:0},t);sp.textContent=l})}}
+    for(let y=2010;y<=2026;y+=(narrow(W)?4:2)){const i=months.indexOf(`${y}-01`);const t=txt(s,pl+i*bw,H-8,String(y),{'text-anchor':'middle','font-size':11.5});const hw=t.getComputedTextLength()/2;if(pl+i*bw+hw>W-1)t.setAttribute('x',W-1-hw)}
     table(id,[{h:'Month',k:'month'},{h:'Platform',k:'platform'},{h:'Median likes + reposts',k:'median_eng',num:1,f:v=>v==null?'–':fmtInt(v)}],tl);
   }
   // ---- congress
@@ -592,8 +592,8 @@ fetch('data/report.json').then(r=>r.json()).then(R=>{
     const rows=[['Posts per day','posts_per_day',v=>v.toFixed(1)],['Reposts, share of feed','repost_share',pct],['Typical post length (words)','median_words',v=>fmtInt(v)],['Posts over 50 words','long_share',pct],['Text-only posts','text_only_share',pct],['Posts with a link','link_share',pct],['Image or video, no caption','no_text_share',pct],['Heavy CAPITALS','caps_share',pct],['Exclamation mark','exclamation_share',pct],['Best hour (US Eastern)','best_hour_et',v=>v+':00']];
     const tb=document.querySelector('#scorecard tbody');tb.innerHTML=rows.map(([l,k,f])=>{const va=a[k],vb=b[k];const mx=Math.max(va,vb)||1;const bar=k==='best_hour_et'?'':`<span class="bar" style="width:${Math.round(va/mx*60)}px"></span>`;const barb=k==='best_hour_et'?'':`<span class="bar" style="width:${Math.round(vb/mx*60)}px"></span>`;return `<tr><td>${l}</td><td class="a">${f(va)}${bar}</td><td class="b">${f(vb)}${barb}</td></tr>`}).join('')}
   // ---- hours
-  function hours(){const id='c-hour',W=width(id),H=250,pl=40,pb=28,pt=16;const s=svg(document.getElementById(id),W,H);const lo=0.6,hi=1.4;const X=h=>pl+h/23*(W-pl-70);const Y=v=>pt+(H-pt-pb)*(1-(v-lo)/(hi-lo));
-    [0.8,1,1.2].forEach(v=>{txt(s,pl-6,Y(v)+4,v.toFixed(1)+'×',{'text-anchor':'end','font-size':11.5});el('line',{x1:pl,x2:W-70,y1:Y(v),y2:Y(v),stroke:v===1?'#4a4442':'#242120','stroke-dasharray':v===1?'3 4':'','stroke-width':1},s)});
+  function hours(){const id='c-hour',W=width(id),H=250,pl=40,pb=28,pt=16;const s=svg(document.getElementById(id),W,H);const lo=0.6,hi=1.4;const X=h=>pl+h/23*(W-pl-86);const Y=v=>pt+(H-pt-pb)*(1-(v-lo)/(hi-lo));
+    [0.8,1,1.2].forEach(v=>{txt(s,pl-6,Y(v)+4,v.toFixed(1)+'×',{'text-anchor':'end','font-size':11.5});el('line',{x1:pl,x2:W-86,y1:Y(v),y2:Y(v),stroke:v===1?'#4a4442':'#242120','stroke-dasharray':v===1?'3 4':'','stroke-width':1},s)});
     (narrow(W)?[0,12,23]:[0,6,12,18,23]).forEach(h=>txt(s,X(h),H-8,h===0?'midnight':h===12?'noon':h+':00',{'text-anchor':'middle','font-size':11.5}));
     ['Twitter','Truth Social'].forEach(p=>{const pts=R.hours.filter(r=>r.platform===p).sort((a,b)=>a.hour_et-b.hour_et);
       el('path',{d:'M'+pts.map(r=>X(r.hour_et)+','+Y(r.median_uplift)).join('L'),fill:'none',stroke:p==='Truth Social'?C.hi:C.grey,'stroke-width':2},s);
