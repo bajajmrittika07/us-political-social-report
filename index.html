@@ -650,10 +650,10 @@ fetch('data/report.json').then(r=>r.json()).then(R=>{
     const E=Object.fromEntries(R.eras.map(e=>[e.era,e]));
     const D={
       congress:d=>{const v=R.volume_compare;bars(d,[{l:'Trump, incl. RTs',v:v.trump_jan_may_2020_per_month,t:fmtInt(v.trump_jan_may_2020_per_month)},{l:'Trump, own posts',v:v.trump_jan_may_2020_own_per_month,t:fmtInt(v.trump_jan_may_2020_own_per_month),hi:1},{l:'Median Dem',v:130,t:'130'},{l:'Median Rep',v:73,t:'73'}])},
-      eng:d=>{const [s,W]=mk(d,92),lo=Math.log10(30),hi=Math.log10(300000);const ms=[...new Set(R.timeline.map(r=>r.month))].sort();const X=i=>4+i/(ms.length-1)*(W-8),Y=v=>76-(Math.log10(v)-lo)/(hi-lo)*56;
+      eng:d=>{const [s,W]=mk(d,100),lo=Math.log10(30),hi=Math.log10(300000);const ms=[...new Set(R.timeline.map(r=>r.month))].sort();const X=i=>4+i/(ms.length-1)*(W-8),Y=v=>78-(Math.log10(v)-lo)/(hi-lo)*58;
         ['Twitter','Truth Social'].forEach(p=>{const pts=ms.map((mo,i)=>{const r=R.timeline.find(t=>t.month===mo&&t.platform===p);return r&&r.median_eng>0?[X(i),Y(r.median_eng)]:null}).filter(Boolean);
           el('path',{d:'M'+pts.map(q=>q.join(',')).join('L'),fill:'none',stroke:p==='Truth Social'?C.hi:C.grey,'stroke-width':1.6},s)});
-        lab(s,4,11,'Typical likes + reposts, log scale');lab(s,4,90,'Twitter 2009–21');lab(s,W-4,90,'Truth Social',{'text-anchor':'end',fill:C.hi})},
+        lab(s,4,13,'Typical likes + reposts, log scale');lab(s,4,94,'Twitter 2009–21');lab(s,W-4,94,'Truth Social',{'text-anchor':'end',fill:C.hi})},
       format:d=>{const rows=R.formats.filter(r=>r.platform==='Truth Social').sort((a,b)=>b.median_uplift-a.median_uplift).slice(0,4);
         const sh={'Text only':'Text only','Text + article link':'Text + link','Image/video, no caption':'Media, no caption','Video link':'Video link','Article link only':'Link only','Shared Truth post':'Shared post'};
         const all=R.formats.filter(r=>r.platform==='Truth Social').sort((a,b)=>b.median_uplift-a.median_uplift);const pick=[all[0],all[1],all.find(r=>r.format==='Article link only')];
@@ -663,8 +663,8 @@ fetch('data/report.json').then(r=>r.json()).then(R=>{
       busy:d=>div(d,[['Truth Social',1],['Twitter',0]].map(([pl,h])=>{const m=reg(pl,'Posts that day (per doubling)');return {l:pl,v:m-1,t:pc(m),hi:h}})),
       then:d=>{const rows=[['Reposts in feed',E['Twitter 2017–21'].repost_share*100,E['Truth Social 2025–26'].repost_share*100,v=>v.toFixed(v<10?1:0)+'%','first term → 2025–26'],
                             ['Words per post',E['Twitter 2015–16'].median_words,E['Truth Social 2025–26'].median_words,v=>String(Math.round(v)),'2015–16 → 2025–26']];
-        const [s,W]=mk(d,rows.length*30+2),lw=Math.min(98,W*0.44),x0=lw+10,xw=W-x0-34;
-        rows.forEach(([l,a,b,f,sub],i)=>{const y=i*30+12,m=Math.max(a,b)*1.05,X=v=>x0+v/m*xw;lab(s,lw,y+3,l,{'text-anchor':'end',fill:C.ink2});lab(s,lw,y+15,sub,{'text-anchor':'end','font-size':9});
+        const [s,W]=mk(d,rows.length*36+10),lw=Math.min(98,W*0.44),x0=lw+16,xw=W-x0-24;
+        rows.forEach(([l,a,b,f,sub],i)=>{const y=i*36+18,m=Math.max(a,b)*1.05,X=v=>x0+v/m*xw;lab(s,lw,y+3,l,{'text-anchor':'end',fill:C.ink2});lab(s,lw,y+15,sub,{'text-anchor':'end','font-size':9});
           el('line',{x1:X(a),x2:X(b),y1:y,y2:y,stroke:C.grey,'stroke-width':2},s);el('circle',{cx:X(a),cy:y,r:4,fill:C.grey},s);el('circle',{cx:X(b),cy:y,r:4.5,fill:C.hi},s);
           val(s,X(a),y-7,f(a),{'text-anchor':'middle',fill:C.label});val(s,X(b),y+16,f(b),{'text-anchor':'middle'})})},
     };
